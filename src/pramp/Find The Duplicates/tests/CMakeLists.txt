@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.8)
+
+# Test
+project(Pramp_FindTheDuplicates_Test)
+
+add_executable(Pramp_FindTheDuplicates_Test "test.cpp")
+target_link_libraries(Pramp_FindTheDuplicates_Test gtest gtest_main pthread)
+add_test(Pramp_FindTheDuplicates_Test Pramp_FindTheDuplicates_Test)
+
+# Benchmark
+project(Pramp_FindTheDuplicates_Benchmark)
+
+add_executable(Pramp_FindTheDuplicates_Benchmark "benchmark.cpp")
+target_link_libraries(Pramp_FindTheDuplicates_Benchmark gtest benchmark_main)
+add_test(Pramp_FindTheDuplicates_Benchmark Pramp_FindTheDuplicates_Benchmark)
