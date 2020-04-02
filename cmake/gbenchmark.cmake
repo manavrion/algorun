@@ -21,7 +21,6 @@ if(result)
 endif()
 
 set(BENCHMARK_ENABLE_TESTING OFF)
-set(CMAKE_BUILD_TYPE Release)
 
 # Add google-benchmark directly to our build. This defines the benchmark and
 # benchmark_main targets.
