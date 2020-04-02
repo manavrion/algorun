@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.8)
+
+# Test
+project(Pramp_SentenceReverse_Test)
+
+add_executable(Pramp_SentenceReverse_Test "test.cpp")
+target_link_libraries(Pramp_SentenceReverse_Test gtest gtest_main pthread)
+add_test(Pramp_SentenceReverse_Test Pramp_SentenceReverse_Test)
+
+# Benchmark
+project(Pramp_SentenceReverse_Benchmark)
+
+add_executable(Pramp_SentenceReverse_Benchmark "benchmark.cpp")
+target_link_libraries(Pramp_SentenceReverse_Benchmark gtest benchmark_main)
+add_test(Pramp_SentenceReverse_Benchmark Pramp_SentenceReverse_Benchmark)
