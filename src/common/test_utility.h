@@ -28,10 +28,10 @@ class TestMaker {
       auto s2_answer = std::apply(std::forward<S2>(s2), testCase.input);
 
       if (auto& expectation = *testCase.expectation; testCase.expectation) {
-        EXPECT_EQ(expectation, s1_answer);
-        EXPECT_EQ(expectation, s2_answer);
+        ASSERT_EQ(expectation, s1_answer);
+        ASSERT_EQ(expectation, s2_answer);
       } else {
-        EXPECT_EQ(s1_answer, s2_answer);
+        ASSERT_EQ(s1_answer, s2_answer);
       }
     }
   }
