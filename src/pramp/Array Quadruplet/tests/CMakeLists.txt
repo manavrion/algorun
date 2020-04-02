@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.8)
+
+# Test
+project(Pramp_ArrayQuadruplet_Test)
+
+add_executable(Pramp_ArrayQuadruplet_Test "test.cpp")
+target_link_libraries(Pramp_ArrayQuadruplet_Test gtest gtest_main pthread)
+add_test(Pramp_ArrayQuadruplet_Test Pramp_ArrayQuadruplet_Test)
+
+# Benchmark
+project(Pramp_ArrayQuadruplet_Benchmark)
+
+add_executable(Pramp_ArrayQuadruplet_Benchmark "benchmark.cpp")
+target_link_libraries(Pramp_ArrayQuadruplet_Benchmark gtest benchmark_main)
+add_test(Pramp_ArrayQuadruplet_Benchmark Pramp_ArrayQuadruplet_Benchmark)
