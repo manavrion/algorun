@@ -1,3 +1,8 @@
+//
+// Copyright (C) 2020 Ruslan Manaev (manavrion@gmail.com)
+// This file is part of https://github.com/manavrion/algorun repository
+//
+
 #pragma once
 #include <gtest/gtest.h>
 
