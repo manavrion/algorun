@@ -21,6 +21,12 @@ class TestMaker {
 
   template <typename S1, typename S2>
   void CompareSolutions(S1&& s1, S2&& s2, size_t limit) {
+    auto print = [](const auto& arg) {
+      std::stringstream ss;
+      testing::internal::PrintTo(arg, &ss);
+      return ss.str();
+    };
+
     auto testCases = GenerateTestCases(limit);
 
     for (const auto& testCase : testCases) {
@@ -28,10 +34,18 @@ class TestMaker {
       auto s2_answer = std::apply(std::forward<S2>(s2), testCase.input);
 
       if (auto& expectation = *testCase.expectation; testCase.expectation) {
-        ASSERT_EQ(expectation, s1_answer);
-        ASSERT_EQ(expectation, s2_answer);
+        {
+          auto solution = std::move(s1_answer);
+          ASSERT_EQ(expectation, solution) << print(testCase.input);
+        }
+        {
+          auto solution = std::move(s2_answer);
+          ASSERT_EQ(expectation, solution) << print(testCase.input);
+        }
       } else {
-        ASSERT_EQ(s1_answer, s2_answer);
+        auto canonical = std::move(s1_answer);
+        auto solution = std::move(s2_answer);
+        ASSERT_EQ(canonical, solution) << print(testCase.input);
       }
     }
   }
